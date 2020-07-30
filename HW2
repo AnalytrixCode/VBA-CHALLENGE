@@ -1,0 +1,49 @@
+sub() Homework2_StockValueData
+
+'this homework has 3 parts consisting of 1. creating the loop 2. if/then conditionals 3. output of data
+
+
+'variable for name of each stock
+dim ticker as string 
+
+'difference bettween open and close stock amounts
+dim yearly_change as double 
+
+'this output will make output as an integer 
+dim stock_volume as double 
+stock_vol = 0
+
+'this code will make the output a percent and add all the numbers for each stock 
+dim percent change as double
+percent_change = 0
+
+'this code will place the table output on the second row 
+dim summary_table_row as integer 
+summary_table_row = 2
+
+'this code will create a loop 
+for i = 2 to 705714
+
+    if cells(i,1).value <> cells(i + 1,1).value then 
+    ticker = cells(i,1).value
+' shows the data change
+    Range("I" & summary_table_row).value = ticker 
+    Range("j" & summary_table_row).value = yearly_change
+    Range("L") & summary_table_row).value = stock_vol
+    Range("k") & summary_table_row).value = percent_change
+'these are the counters for each change and volume 
+    summary_table_row = summary_table_row + 1
+    yearly_change = 0
+    stock_vol = 0 
+    percent_change = 0 
+
+else
+ 
+ yearly_change =  yearly_change + (cells(i, 6.value - cells(i, 3).value)
+ stock_vol = stock_vol + cells(i,7).value
+ percent_change = yearly_change * 100
+ end if
+
+ next i
+
+ end sub 
